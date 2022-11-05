@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'org.ovelychko.moviebot'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':tele-user-data-save-sqs-handler')
+    implementation project(':user-request-save-sqs-handler')
+    implementation project(':telegram-bot-APIGateway-request-handler')
+}
+
+test {
+    useJUnitPlatform()
+}

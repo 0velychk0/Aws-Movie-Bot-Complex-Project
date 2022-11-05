@@ -1,0 +1,6 @@
+rootProject.name = 'Aws-Movie-Bot-Complex-Project'
+
+include 'tele-user-data-save-sqs-handler'
+include 'user-request-save-sqs-handler'
+include 'telegram-bot-APIGateway-request-handler'
+

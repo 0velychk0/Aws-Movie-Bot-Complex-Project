@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+}
+
+group 'org.ovelychko.moviebot'
+version getDate()
+
+static def getDate() {
+    return new Date().format('yyyy-MM-dd-HH.mm.ss')
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.amazonaws:aws-lambda-java-core:1.2.1'
+    implementation 'com.amazonaws:aws-lambda-java-events:3.11.0'
+    implementation 'org.telegram:telegrambots:6.1.0'
+    implementation 'org.projectlombok:lombok:1.18.24'
+    implementation 'com.google.code.gson:gson:2.10'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation 'org.slf4j:slf4j-api:2.0.3'
+    implementation 'org.slf4j:slf4j-simple:2.0.3'
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk-lambda', version: '1.12.332'
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk-sqs', version: '1.12.332'
+    implementation group: 'software.amazon.awssdk', name: 'lambda', version: '2.18.6'
+
+    implementation project(':tele-user-data-save-sqs-handler')
+    implementation project(':user-request-save-sqs-handler')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task buildZip(type: Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtimeClasspath
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+build.dependsOn buildZip
