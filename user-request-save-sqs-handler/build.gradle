@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'org.ovelychko.moviebot'
-version getDate()
+version 'v1.0-'+getDate()
 
 static def getDate() {
     return new Date().format('yyyy-MM-dd-HH.mm.ss')
