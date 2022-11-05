@@ -1,4 +1,4 @@
-package org.ovelychko.moviebot;
+package org.ovelychko.awsbotsystem;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;

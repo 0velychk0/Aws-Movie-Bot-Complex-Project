@@ -1,4 +1,4 @@
-package org.ovelychko.moviebot;
+package org.ovelychko.awsbotsystem;
 
 public class Main {
     public static void main(String[] args) {

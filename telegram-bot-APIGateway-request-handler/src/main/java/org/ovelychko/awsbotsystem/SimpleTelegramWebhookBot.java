@@ -1,4 +1,4 @@
-package org.ovelychko.moviebot;
+package org.ovelychko.awsbotsystem;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -7,9 +7,9 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.TextUtils;
-import org.ovelychko.moviebot.Model.MovieDetailsDataModel;
-import org.ovelychko.moviebot.Model.MovieSearchModel;
-import org.ovelychko.moviebot.Model.MovieSearchModelCollection;
+import org.ovelychko.awsbotsystem.Model.MovieDetailsDataModel;
+import org.ovelychko.awsbotsystem.Model.MovieSearchModel;
+import org.ovelychko.awsbotsystem.Model.MovieSearchModelCollection;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;

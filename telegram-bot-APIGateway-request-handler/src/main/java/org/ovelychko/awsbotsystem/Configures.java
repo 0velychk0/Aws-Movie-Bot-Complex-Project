@@ -1,4 +1,4 @@
-package org.ovelychko.moviebot;
+package org.ovelychko.awsbotsystem;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

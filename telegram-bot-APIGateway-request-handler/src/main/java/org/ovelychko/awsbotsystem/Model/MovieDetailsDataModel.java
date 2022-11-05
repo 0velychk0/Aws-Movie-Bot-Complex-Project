@@ -1,4 +1,4 @@
-package org.ovelychko.moviebot.Model;
+package org.ovelychko.awsbotsystem.Model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
