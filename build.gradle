@@ -12,7 +12,11 @@ repositories {
 dependencies {
     implementation project(':tele-user-data-save-sqs-handler')
     implementation project(':user-request-save-sqs-handler')
-    implementation project(':telegram-bot-APIGateway-request-handler')
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
 
 test {
