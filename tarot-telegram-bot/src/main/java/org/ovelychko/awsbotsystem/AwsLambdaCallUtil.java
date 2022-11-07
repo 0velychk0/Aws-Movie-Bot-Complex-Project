@@ -49,7 +49,7 @@ public class AwsLambdaCallUtil {
     public static void saveUserRequestData(Update update) {
         log.info("saveUserRequestData SQS started");
 
-        String searchText = "MOVIE: " + update.getMessage().getText();
+        String searchText = "TAROT: " + update.getMessage().getText();
         long teleUser = update.getMessage().getFrom().getId();
 
         LocalDateTime ldt = LocalDateTime.now();

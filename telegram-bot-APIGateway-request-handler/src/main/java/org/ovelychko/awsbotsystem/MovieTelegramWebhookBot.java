@@ -19,7 +19,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import java.util.StringJoiner;
 
 @Slf4j
-public class SimpleTelegramWebhookBot extends TelegramWebhookBot {
+public class MovieTelegramWebhookBot extends TelegramWebhookBot {
 
     private final ObjectMapper mapper = new ObjectMapper();
     private final Configures config = new Configures();

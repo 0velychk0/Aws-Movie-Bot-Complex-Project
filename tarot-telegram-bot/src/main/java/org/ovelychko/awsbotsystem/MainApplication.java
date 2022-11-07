@@ -14,7 +14,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 public class MainApplication implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     private static final ObjectMapper MAPPER = new ObjectMapper();
-    private static final TelegramWebhookBot SENDER = new MovieTelegramWebhookBot();
+    private static final TelegramWebhookBot SENDER = new TarotTelegramWebhookBot();
 
     public MainApplication() {
         // log.info("MainApplication created");
