@@ -5,12 +5,6 @@
 # - ця лямбда отримує реквести з Api Gateway, API type: HTTP, Resource path: /movie-telegram-bot-tf
 # - до цієї лямбди треба підключити CloudWatch Log group з Retention 3 days
 
-# Account ID: 130813068199
-# Account name: ovelychko1981
-# AWS_ACCESS_KEY_ID
-# AWS_SECRET_ACCESS_KEY
-# AWS_DEFAULT_REGION
-
 # AWS CLI:
 # brew install awscli
 # aws configure --profile your_aws_profile
@@ -18,7 +12,7 @@
 # Terraform commands:
 # brew install terraform
 # terraform init
-# terraform apply -var="aws_profile=your_aws_profile"
+# terraform apply
 # terraform destroy
 
 provider "aws" {
