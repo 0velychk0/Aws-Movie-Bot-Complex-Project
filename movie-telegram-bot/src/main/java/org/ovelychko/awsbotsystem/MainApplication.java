@@ -17,22 +17,16 @@ public class MainApplication implements RequestHandler<APIGatewayProxyRequestEve
     private static final TelegramWebhookBot SENDER = new MovieTelegramWebhookBot();
 
     public MainApplication() {
-        // log.info("MainApplication created");
     }
 
     @Override
     public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent event, Context context) {
         LambdaLogger logger = context.getLogger();
-        // log execution details
-        // logger.log("EVENT: " + event);
-        // logger.log("ENVIRONMENT VARIABLES: " + System.getenv());
-        // logger.log("CONTEXT: " + context);
+        logger.log("handleRequest, body: " + event.getBody());
 
-        Update update;
         try {
-            // log.info("event.getBody(): " + event.getBody());
-            update = MAPPER.readValue(event.getBody(), Update.class);
-            logger.log("UPDATE: " + update);
+            Update update= MAPPER.readValue(event.getBody(), Update.class);
+            logger.log("handleRequest, update: " + update);
 
             if (update == null) {
                 return new APIGatewayProxyResponseEvent()
@@ -49,24 +43,24 @@ public class MainApplication implements RequestHandler<APIGatewayProxyRequestEve
             if (update.getMessage().getFrom().getIsBot()) {
                 return new APIGatewayProxyResponseEvent()
                         .withStatusCode(200)
-                        .withBody("tele bot is not supported")
+                        .withBody("telegram bot is not supported")
                         .withIsBase64Encoded(false);
             }
 
-            AwsLambdaCallUtil.saveUserData(update);
-
-            AwsLambdaCallUtil.saveUserRequestData(update);
-
             SENDER.onWebhookUpdateReceived(update);
+
+            // AwsLambdaCallUtil.saveUserData(update);
+
+            // AwsLambdaCallUtil.saveUserRequestData(update);
+
         } catch (Exception e) {
-            // log.error("Failed to parse update: " + e);
             throw new RuntimeException("Failed to parse update!", e);
         }
-        // log.info("Starting handling update " + update.getUpdateId());
 
         return new APIGatewayProxyResponseEvent()
                 .withStatusCode(200)
                 .withBody("Done")
                 .withIsBase64Encoded(false);
     }
+
 }

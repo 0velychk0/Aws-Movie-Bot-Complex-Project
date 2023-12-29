@@ -3,11 +3,7 @@ plugins {
 }
 
 group 'org.ovelychko.awsbotsystem'
-version 'v1.0-'+getDate()
-
-static def getDate() {
-    return new Date().format('yyyy-MM-dd-HH.mm.ss')
-}
+version 'v1.0'
 
 repositories {
     mavenCentral()

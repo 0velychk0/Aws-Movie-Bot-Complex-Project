@@ -23,15 +23,9 @@ public class MainApplication implements RequestHandler<APIGatewayProxyRequestEve
     @Override
     public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent event, Context context) {
         LambdaLogger logger = context.getLogger();
-        // log execution details
-        // logger.log("EVENT: " + event);
-        // logger.log("ENVIRONMENT VARIABLES: " + System.getenv());
-        // logger.log("CONTEXT: " + context);
 
-        Update update;
         try {
-            // log.info("event.getBody(): " + event.getBody());
-            update = MAPPER.readValue(event.getBody(), Update.class);
+            Update update = MAPPER.readValue(event.getBody(), Update.class);
             logger.log("UPDATE: " + update);
 
             if (update == null) {
@@ -53,16 +47,15 @@ public class MainApplication implements RequestHandler<APIGatewayProxyRequestEve
                         .withIsBase64Encoded(false);
             }
 
+            SENDER.onWebhookUpdateReceived(update);
+
             AwsLambdaCallUtil.saveUserData(update);
 
             AwsLambdaCallUtil.saveUserRequestData(update);
 
-            SENDER.onWebhookUpdateReceived(update);
         } catch (Exception e) {
-            // log.error("Failed to parse update: " + e);
             throw new RuntimeException("Failed to parse update!", e);
         }
-        // log.info("Starting handling update " + update.getUpdateId());
 
         return new APIGatewayProxyResponseEvent()
                 .withStatusCode(200)
