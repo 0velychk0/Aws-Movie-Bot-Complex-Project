@@ -1,0 +1,22 @@
+// handleRequest, body:
+{
+  "update_id": 486406943,
+  "message": {
+    "message_id": 2487,
+    "from": {
+      "id": 1222900240,
+      "is_bot": false,
+      "first_name": "ovelychko",
+      "username": "ovelychko",
+      "language_code": "en"
+    },
+    "chat": {
+      "id": 1222900240,
+      "first_name": "ovelychko",
+      "username": "ovelychko",
+      "type": "private"
+    },
+    "date": 1705856502,
+    "text": "terra"
+  }
+}

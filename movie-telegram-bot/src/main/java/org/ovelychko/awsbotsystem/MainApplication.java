@@ -16,9 +16,6 @@ public class MainApplication implements RequestHandler<APIGatewayProxyRequestEve
     private static final ObjectMapper MAPPER = new ObjectMapper();
     private static final TelegramWebhookBot SENDER = new MovieTelegramWebhookBot();
 
-    public MainApplication() {
-    }
-
     @Override
     public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent event, Context context) {
         LambdaLogger logger = context.getLogger();
